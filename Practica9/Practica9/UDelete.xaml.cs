@@ -28,7 +28,7 @@ namespace Practica9
         private async void Deleted()
         {
 
-            IEnumerable<_13090341> elementos = await Tabla.IncludeDeleted().ToEnumerableAsync();
+            IEnumerable<_13090341> elementos = await Tabla.IncludeDeleted().Where(_13090341 => _13090341.Deleted == true).ToEnumerableAsync();
             Items = new ObservableCollection<_13090341>(elementos);
             BindingContext = this;
             InitializeComponent();
