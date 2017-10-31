@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica9.UDelete">
+    <StackLayout Margin="10,5">
+        <ListView ItemsSource="{Binding Items}" CachingStrategy="RecycleElement" ItemSelected="Handle_ItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="200">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <BoxView BackgroundColor="#B5ACDA"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
+                            <Label Text="Matricula:" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="{Binding Matricula}" Grid.Column="1" Grid.Row="0" />
+
+                            <Label Text="Nombre:" Grid.Column="0" Grid.Row="1" />
+                            <Label Text="{Binding Nombre}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="Apellidos:" Grid.Column="0" Grid.Row="2" />
+                            <Label Text="{Binding Apellidos}" Grid.Column="1" Grid.Row="2" />
+
+                            <Label Text="Direccion:" Grid.Column="0" Grid.Row="3" />
+                            <Label Text="{Binding Direccion}" Grid.Column="1" Grid.Row="3" />
+
+                            <Label Text="Telefono:" Grid.Column="0" Grid.Row="4" />
+                            <Label Text="{Binding Telefono}" Grid.Column="1" Grid.Row="4" />
+
+                            <Label Text="Carrera:" Grid.Column="0" Grid.Row="5" />
+                            <Label Text="{Binding Carrera}" Grid.Column="1" Grid.Row="5" />
+
+                            <Label Text="Semestre:" Grid.Column="0" Grid.Row="6" />
+                            <Label Text="{Binding Semestre}" Grid.Column="1" Grid.Row="6" />
+
+                            <Label Text="Correo:" Grid.Column="0" Grid.Row="7" />
+                            <Label Text="{Binding Correo}" Grid.Column="1" Grid.Row="7" />
+
+                            <Label Text="Github:" Grid.Column="0" Grid.Row="8" />
+                            <Label Text="{Binding Github}" Grid.Column="1" Grid.Row="8" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

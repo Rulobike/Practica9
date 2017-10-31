@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica9.InsertPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Matricula:" Grid.Column="0" Grid.Row="0" />
+            <Entry x:Name="Entry_Matricula" Grid.Column="1" Grid.Row="0" Keyboard="Numeric" Placeholder="8 Caracteres Maximo"/>
+            <Label Text="Nombre:" Grid.Column="0" Grid.Row="1" />
+            <Entry x:Name="Entry_Nombre" Grid.Column="1" Grid.Row="1" Keyboard="Text" Placeholder="Nombre"/>
+            <Label Text="Apellidos:" Grid.Column="0" Grid.Row="2" />
+            <Entry x:Name="Entry_Apellidos" Grid.Column="1" Grid.Row="2" Keyboard="Text" Placeholder="Apellidos"/>
+            <Label Text="Direccion:" Grid.Column="0" Grid.Row="3" />
+            <Entry x:Name="Entry_Direccion" Grid.Column="1" Grid.Row="3" Keyboard="Text" Placeholder="Direcion"/>
+            <Label Text="Telefono:" Grid.Column="0" Grid.Row="4" />
+            <Entry x:Name="Entry_Telefono" Grid.Column="1" Grid.Row="4" Keyboard="Telephone" Placeholder="10 digitos"/>
+            <Label Text="Carrera:" Grid.Column="0" Grid.Row="5" />
+            <Entry x:Name="Entry_Carrera" Grid.Column="1" Grid.Row="5"/>
+            <Label Text="Semestre:" Grid.Column="0" Grid.Row="6" />
+            <Entry x:Name="Entry_Semestre" Grid.Column="1" Grid.Row="6"/>
+            <Label Text="Correo:" Grid.Column="0" Grid.Row="7" />
+            <Entry x:Name="Entry_Correo" Grid.Column="1" Grid.Row="7" Keyboard="Email" Placeholder="ejemplo@hotmail.com"/>
+            <Label Text="Github:" Grid.Column="0" Grid.Row="8" />
+            <Entry x:Name="Entry_Github" Grid.Column="1" Grid.Row="8" Keyboard="Text" Placeholder="Github"/>
+            <Button x:Name="Button_Insertar" Text="Insertar Datos" Clicked="Boton_Insertar" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"/>
+        </Grid>
+        </ContentPage.Content>
+</ContentPage>
