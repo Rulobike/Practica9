@@ -24,9 +24,10 @@ namespace Practica9
         }
         private async void LeerTabla()
         {
-            IEnumerable<_13090341> items = await Tabla.Where(_13090341 => _13090341.Deleted == false).ToEnumerableAsync();
+            IEnumerable<_13090341> items = await MainPage.Tabla.Where(_13090341 => _13090341.Deleted == false).ToEnumerableAsync();
             Items = new ObservableCollection<_13090341>(items);
             BindingContext = this;
+            Lista.ItemsSource = items;
         }
         private async void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

@@ -32,7 +32,8 @@ namespace Practica9
                 Github = Entry_Github.Text
             };
             await MainPage.Tabla.InsertAsync(datos);
-            await Navigation.PushModalAsync(new MainPage());
+            await Navigation.PopAsync();
+           // await Navigation.PushModalAsync(new MainPage());
         }
     }
 }

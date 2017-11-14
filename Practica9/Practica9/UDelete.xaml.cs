@@ -16,26 +16,33 @@ namespace Practica9
     {
         public ObservableCollection<_13090341> Items { get; set; }
         public static MobileServiceClient Cliente;
+        public MobileServiceUser usuario;
         public static IMobileServiceTable<_13090341> Tabla;
-        public UDelete()
+
+        public UDelete(MobileServiceUser user)
         {
             InitializeComponent();
+            usuario = user;
+            LeerTabla();
             Cliente = new MobileServiceClient(AzureConnection.AzureURL);
             Tabla = Cliente.GetTable<_13090341>();
-            Deleted();
+           // Deleted();
         }
-
-        private async void Deleted()
+        private async void LeerTabla()
         {
-
-            IEnumerable<_13090341> elementos = await Tabla.IncludeDeleted().Where(_13090341 => _13090341.Deleted == true).ToEnumerableAsync();
-            Items = new ObservableCollection<_13090341>(elementos);
-            BindingContext = this;
-            InitializeComponent();
+            if (usuario != null)
+            {
+                IEnumerable<_13090341> elementos = await MainPage.Tabla.IncludeDeleted().Where(_13090341 => _13090341.Deleted == true).ToEnumerableAsync();
+                Items = new ObservableCollection<_13090341>(elementos);
+                BindingContext = this;
+                Lista.ItemsSource = Items;
+            }
+            else
+            {
+                await DisplayAlert("ERROR", usuario.UserId, "ok");
+            }
         }
-
-
-        private async void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+            private async void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;

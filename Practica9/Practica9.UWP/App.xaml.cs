@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Practica9.UWP
 {
@@ -103,5 +104,15 @@ namespace Practica9.UWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                var protocolArgs = args as ProtocolActivatedEventArgs;
+                Practica9.MainPage.Cliente.ResumeWithURL(protocolArgs.Uri);
+            }
+        }
+
     }
 }

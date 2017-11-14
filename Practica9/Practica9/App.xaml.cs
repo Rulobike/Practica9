@@ -4,16 +4,25 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Practica9
 {
     public partial class App : Application
     {
+        //
+    public static ISQLAzure Authenticator { get; private set; }
+
+        public static void Init(ISQLAzure authenticator)
+        {
+            Authenticator = authenticator;
+        }
+        //
         public App()
         {
             InitializeComponent();
 
-            MainPage = new Practica9.MainPage();
+            MainPage = new NavigationPage(new Practica9.MainPage());
         }
 
         protected override void OnStart()

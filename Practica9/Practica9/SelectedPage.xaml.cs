@@ -34,7 +34,7 @@ namespace Practica9
 
             };
             await MainPage.Tabla.UpdateAsync(datos);
-            await Navigation.PushModalAsync(new MainPage());
+            await Navigation.PopModalAsync();
         }
         private async void Eliminar_Clicked(object sender, EventArgs e)
         {
@@ -43,7 +43,8 @@ namespace Practica9
                 Matricula = Entry_Matricula.Text,
             };
             await MainPage.Tabla.DeleteAsync(datos);
-            await Navigation.PushModalAsync(new MainPage());
+            await Navigation.PopModalAsync();
+            //await Navigation.PushModalAsync(new MainPage());
 
         }
 
@@ -54,7 +55,7 @@ namespace Practica9
                     Matricula = Entry_Matricula.Text,
                 };
                 await MainPage.Tabla.UndeleteAsync(datos);
-                await Navigation.PushModalAsync(new MainPage());
+                await Navigation.PopModalAsync();
             
 
             }

@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Practica9"
              x:Class="Practica9.MainPage">
     <StackLayout Margin="10,5">
-        <ListView ItemsSource="{Binding Items}" CachingStrategy="RecycleElement" ItemSelected="Handle_ItemSelected" >
+        <ListView x:Name="Lista" ItemsSource="{Binding Items}" CachingStrategy="RecycleElement" ItemSelected="Handle_ItemSelected" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell Height="200">
@@ -57,7 +57,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Insertar Registro " Clicked="Boton_Insertar"/>
-        <Button Text="Registros Eliminados " Clicked="Boton_Undeleted"/>
+        <Button IsVisible="False"  Text="Insertar Registro" x:Name="Insertar_R" Clicked="Boton_Insertar"/>
+        <Button IsVisible="False"  Text="Registros Eliminados " x:Name="Registros_E"  Clicked="Boton_Undeleted"/>
+        <Button x:Name="inicio_sesion" Text="Iniciar Sesion" Clicked="Login"/>
     </StackLayout>
 </ContentPage>

@@ -13,14 +13,38 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
+using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
+using Windows.UI.Popups;
+
 namespace Practica9.UWP
 {
-    public sealed partial class MainPage
+    public sealed partial class MainPage : ISQLAzure
     {
+        private MobileServiceUser usuario;
+
+        public async Task<MobileServiceUser> Authenticate()
+        {
+            try
+            {
+                usuario = await Practica9.MainPage.Cliente.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount,"tesh.azurewebsites.net");
+                if (usuario != null)
+                {
+                    await new MessageDialog(usuario.UserId, "Bienvenido").ShowAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                await new MessageDialog(ex.Message, "Error").ShowAsync();
+            }
+            return usuario;
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
-
+            Practica9.App.Init((ISQLAzure)this);
             LoadApplication(new Practica9.App());
         }
     }
